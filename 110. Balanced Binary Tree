@@ -1,0 +1,15 @@
+int bal(TreeNode* root,bool &ans) {
+        if(!root) return 0;
+        int l=bal(root->left,ans);
+        int r=bal(root->right,ans);
+        if(abs(abs(l)-abs(r))>1) ans=false;
+        cout<<max(l,r)+1<<endl;
+        return (max(l,r)+1);
+} 
+        
+        
+bool isBalanced(TreeNode* root) {
+        bool ans=true;
+        int t=bal(root,ans);
+        return ans;
+}
